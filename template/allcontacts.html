@@ -1,0 +1,32 @@
+<h4>View all contacts</h4>
+<h5>Search contact</h5>
+
+<form class="form-inline" role="form">
+	
+	<div class="form-group">
+		<label class="sr-only" for="txtsearchbox">Enter Name</label>
+		<input type="text" class="form-control" id="txtsearchbox" placeholder="Enter name" ng-model="searchText.name">
+	</div>
+
+	<div class="table-responsive">
+		<table class="table table-striped table-hover">
+			<caption>table title and/or explanatory text</caption>
+			<thead>
+				<tr>
+					<th>Name</th>
+					<th>Email</th>
+					<th>Action</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr ng-repeat="contact in contacts | filter:searchText">
+					<td><a href="#/view-contacts/{{contact.id}}">{{contact.name}}</a></td>
+					<td><a href="#">{{contact.emails}}</a></td>
+					<td><a href="#/edit-contacts/{{contact.id}}" class="btn btn-primary">edit</a> <input type="button" class="btn btn-primary" value="Delete" ng-click="confirmDel(contact.id)"></td>
+				</tr>
+			</tbody>
+		</table>
+
+	</div>
+
+</form>
