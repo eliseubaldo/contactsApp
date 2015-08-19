@@ -44,7 +44,7 @@ app.controller('NavBarController',function($scope, $location){
 
 
 app.controller('ctrlContacts', function($scope, ContactService){
-	ContactService.getContact().success(function(contacts){
+	ContactService.getContacts().success(function(contacts){
 		$scope.contacts = contacts;
 	})
 
@@ -52,10 +52,16 @@ app.controller('ctrlContacts', function($scope, ContactService){
 });
 
 app.controller('ctrlViewContacts', function($scope, $routeParams, ContactService){
-	ContactService.singleContact($routeParams.contactId).success(function(contacts){
-		$scope.contact = contacts;
+
+	ContactService.singleContact($routeParams.contactId).success(function(contact){
+		$scope.contact = contact;
 	});
-	//$scope.currContact = $routeParams.contactId;
+
+	$scope.confirmDel = function(id){
+		alert('hi:' + id);
+	};
+
+	
 });
 
 app.controller('ctrlAddContacts', function($scope, ContactService){
@@ -73,7 +79,22 @@ app.controller('ctrlAddContacts', function($scope, ContactService){
 
 });
 
-app.controller('ctrlEditContacts', function($scope){
+app.controller('ctrlEditContacts', function($scope, $routeParams, ContactService){
 
+	ContactService.singleContact($routeParams.contactId).success(function(contact){
+		$scope.contact = contact;
+		$scope.id = $routeParams.contactId;
+	});
 
+	$scope.submitForm = function(contact){
+		if($scope.ContactForm.$valid){
+			ContactService.editContact(contact,$scope.id).success(function(){
+				$scope.ContactForm.$setPristine();
+				$scope.contact = null;
+				alert(' Contact Modified');
+			});
+		};
+
+	};
+	
 });

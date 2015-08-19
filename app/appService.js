@@ -2,7 +2,7 @@ app.factory('ContactService', function($http){
 	
 	var factory = {};
 
-	factory.getContact = function(id){
+	factory.getContacts = function(id){
 
 	//return $http.get('http://192.168.0.1:12345/contactsApp-master/getcontacts.php', id)
 	
@@ -20,6 +20,12 @@ app.factory('ContactService', function($http){
 	factory.addContact = function(objContact){
 		//console.log(objContact);
 		return $http.post('include.php',objContact)
+
+	}
+
+	factory.editContact = function(objContact, id){
+		//console.log(objContact);
+		return $http.post('include.php?id='+id,objContact)
 
 	}
 

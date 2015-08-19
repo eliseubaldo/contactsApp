@@ -1,11 +1,12 @@
 <?php
 
 $id = $_GET['id'];
-echo $id;
-$data = "contacts.json";
-//$data = file_get_contents('contacts.json');
+//$data = "contacts.json";
+$data = file_get_contents('contacts.json');
 $tempArray = json_decode($data, true);
-echo $tempArray[$id]['name'];
+$jsonData = json_encode($tempArray[$id]);
+//print_r();
+echo $jsonData;
 ?>
 
 
