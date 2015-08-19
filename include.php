@@ -9,7 +9,25 @@ if ($id) {
 	$tempArray = json_decode($inp, true);
 	$tempData = json_decode($data,true);
 	
-	print_r ($tempArray[$id]);
+	//print_r ($tempArray[$id]);
+	//print_r ($tempData);
+
+	foreach ($tempArray[$id] as $key => $value) {
+    	
+    	$tempArray[$id][$key] = $tempData[$key];
+    	
+	}
+
+	foreach ($tempArray[$id] as $key => $value) {
+    
+	echo "Key: $key; Value: $value<br />\n";
+
+	}
+
+
+	//$tempArray[$id] = array_merge($tempArray, $data);
+	//$jsonData = json_encode($tempArray);
+	//file_put_contents('contacts.json', $jsonData);
 	
   
 } else {

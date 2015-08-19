@@ -89,6 +89,7 @@ app.controller('ctrlEditContacts', function($scope, $routeParams, ContactService
 	$scope.submitForm = function(contact){
 		if($scope.ContactForm.$valid){
 			ContactService.editContact(contact,$scope.id).success(function(){
+				console.log(contact);
 				$scope.ContactForm.$setPristine();
 				$scope.contact = null;
 				alert(' Contact Modified');
