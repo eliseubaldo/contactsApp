@@ -51,9 +51,11 @@ app.controller('ctrlContacts', function($scope, ContactService){
 
 });
 
-app.controller('ctrlViewContacts', function($scope){
-
-
+app.controller('ctrlViewContacts', function($scope, $routeParams, ContactService){
+	ContactService.singleContact($routeParams.contactId).success(function(contacts){
+		$scope.contact = contacts;
+	});
+	//$scope.currContact = $routeParams.contactId;
 });
 
 app.controller('ctrlAddContacts', function($scope, ContactService){

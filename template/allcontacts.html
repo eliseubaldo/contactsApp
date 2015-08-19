@@ -20,7 +20,7 @@
 			</thead>
 			<tbody>
 				<tr ng-repeat="contact in contacts | filter:searchText">
-					<td><a href="#/view-contacts/{{contact.id}}">{{contact.name}}</a></td>
+					<td><a href="#/view-contacts/{{$index}}">{{contact.name}}</a></td>
 					<td><a href="#">{{contact.emails}}</a></td>
 					<td><a href="#/edit-contacts/{{contact.id}}" class="btn btn-primary">edit</a> <input type="button" class="btn btn-primary" value="Delete" ng-click="confirmDel(contact.id)"></td>
 				</tr>

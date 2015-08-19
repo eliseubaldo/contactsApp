@@ -10,6 +10,11 @@ app.factory('ContactService', function($http){
 
 	}
 
+	factory.singleContact = function(id){
+		
+	return $http.get('getcontact.php?id=' + id);
+	
+	}
 
 
 	factory.addContact = function(objContact){

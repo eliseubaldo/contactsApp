@@ -7,16 +7,19 @@
 	</div>
 
 	<div class="panel-body">
-		<address>
-			<strong>Address</strong><br/>
-			Address 1 <br/>
-			Address 2 , city, state.<br/>
-			<strong>Phone</strong>
-			Phone nbr <br/><br/>
-
-			<strong>Email</strong>
-			<a href="mailto:email?subject=feedback" "email me">email </a>
-		</address>
+		<table class="table table-striped table-hover">
+			
+			<thead>
+				<tr>
+					<th>Name</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<td>{{contact.name}}</td>
+				</tr>
+			</tbody>
+		</table>
 
 		<a href="#/all-contacts" class="btn btn-primary" title="">Back</a>
 	</div>
