@@ -5,25 +5,66 @@
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<title>Contacts app</title>
 	<link rel="stylesheet" href="libs/css/bootstrap.min.css">
+	<style>
+		.navbar-default{
+		background-color:#8c4646;
+		color:white;
+	}
+	.navbar-default .navbar-brand{
+		color:white;
+	}
+	.navbar-default .navbar-nav>.active>a, .navbar-default .navbar-nav>.active>a:focus, .navbar-default .navbar-nav>.active>a:hover{
+		background-color: #588c7e;
+		color:white;	
+	}
+	.navbar-default .navbar-nav>li>a {
+		color:white;
+	}
+	h4{
+		color:#8c4646;
+		font-weight: bold;
+	}
+
+	a{
+		color: #d96459;
+    	text-decoration: none;
+	}
+
+	.btn-primary {
+    	color: #fff;
+    	background-color: #d96459;
+	    border-color: #8c4646;
+	}
+	
+	</style>
 </head>
 
 
 <body>
-
 	<div class="container">
-		<header id="header" class="">
-			
-				<ul class="nav nav-pills pull-right" ng-controller="NavBarController">
-					<li ng-class="{'active': getClass('/all-contacts')}"><a href="#/all-contacts">All Contacts</a></li>
-					<li ng-class="{'active': getClass('/add-contacts')}"><a href="#/add-contacts">Add Contacts</a></li>
-				</ul>
-			<h3>Address Book</h3>
-		</header>
+	<header id="header" class="">
+		<nav class="navbar navbar-default">
+		  <div class="container-fluid">
+		    <div class="navbar-header">
+		      <a class="navbar-brand" href="#">Address Book</a>
+		    </div>
 
-
+		    <!-- Collect the nav links, forms, and other content for toggling -->
+		    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+		     			<ul class="nav navbar-nav navbar-right" ng-controller="NavBarController">
+							<li ng-class="{'active': getClass('/all-contacts')}"><a href="#/all-contacts">All Contacts</a></li>
+							<li ng-class="{'active': getClass('/add-contacts')}"><a href="#/add-contacts">Add Contacts</a></li>
+						</ul>
+						
+						
+		    </div><!-- /.navbar-collapse -->
+		  </div><!-- /.container-fluid -->
+		</nav>
+		
+	</header><!-- /header -->
 	</div>
 
-	<hr>
+	
 
 	<div class="container">
 		<div ng-view></div>

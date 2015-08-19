@@ -1,32 +1,63 @@
-<h4>View all contacts</h4>
-<h5>Search contact</h5>
 
-<form class="form-inline" role="form">
+<div class="row">
+	<div class="col-md-5">
 	
-	<div class="form-group">
-		<label class="sr-only" for="txtsearchbox">Enter Name</label>
-		<input type="text" class="form-control" id="txtsearchbox" placeholder="Enter name" ng-model="searchText.name">
+	</div>
+	<div class="col-md-7">
+		<div class="panel panel-default">
+		  <div class="panel-body">
+		    <form class="form-inline" role="form">
+	
+				<div class="form-group">
+					<label class="" for="txtsearchbox">Search Person</label>
+					<input type="text" class="form-control" id="txtsearchbox" placeholder="Enter name" ng-model="searchText.name">
+				</div>
+			</form>
+		  </div>
+		</div>
+		
 	</div>
 
-	<div class="table-responsive">
-		<table class="table table-striped table-hover">
-			<caption>table title and/or explanatory text</caption>
-			<thead>
-				<tr>
-					<th>Name</th>
-					<th>Email</th>
-					<th>Action</th>
-				</tr>
-			</thead>
-			<tbody>
-				<tr ng-repeat="contact in contacts | filter:searchText">
-					<td><a href="#/view-contacts/{{$index}}">{{contact.name}}</a></td>
-					<td><a href="#">{{contact.email}}</a></td>
-					<td><a href="#/edit-contacts/{{$index}}" class="btn btn-primary">edit</a> <input type="button" class="btn btn-primary" value="Delete" ng-click="confirmDel()"></td>
-				</tr>
-			</tbody>
-		</table>
+</div>
 
+
+<div class="row">
+<div class="col-md-12">
+<div class="panel panel-default">
+
+	<div class="panel-heading">
+		<h4>All contacts</h4>
 	</div>
 
-</form>
+
+	<div class="panel-body">
+		<form class="form-inline" role="form">
+		<div class="table-responsive">
+			<table class="table table-striped table-hover">
+				<thead>
+					<tr>
+						<th>Name</th>
+						<th>Email</th>
+						<th>Action</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr ng-repeat="contact in contacts | filter:searchText">
+						<td><a href="#/view-contacts/{{$index}}">{{contact.name}}</a></td>
+						<td><a href="#">{{contact.email}}</a></td>
+						<td><a href="#/edit-contacts/{{$index}}" class="btn btn-primary">edit</a> <input type="button" class="btn btn-primary" value="Delete" ng-click="confirmDel()"></td>
+					</tr>
+				</tbody>
+			</table>
+
+		</div>
+
+		</form>
+	</div>
+
+</div>
+
+</div>
+</div>
+
+
