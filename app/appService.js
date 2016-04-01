@@ -18,9 +18,8 @@ app.factory('ContactService', function($http){
 
 	factory.deleteContact = function(id){
 		
-	$http.get('deletecontact.php?id=' + id);
-	return $http.get('contacts.json');
-	
+		return $http.get('deletecontact.php?id=' + id);
+			
 	}
 
 

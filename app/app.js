@@ -52,9 +52,10 @@ app.controller('ctrlContacts', function($scope, ContactService){
 
 	$scope.confirmDel = function(id){
 		
-		ContactService.deleteContact(id).success(function(contacts){
+		ContactService.deleteContact(id).success(function(delcontacts){
+			console.log(delcontacts);
 			alert('Contact deleted');
-			$scope.contacts = contacts;
+			$scope.contacts = delcontacts;			
 		});
 
 	};
