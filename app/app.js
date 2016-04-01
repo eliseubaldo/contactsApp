@@ -44,9 +44,21 @@ app.controller('NavBarController',function($scope, $location){
 
 
 app.controller('ctrlContacts', function($scope, ContactService){
+
 	ContactService.getContacts().success(function(getcontacts){
 		$scope.contacts = getcontacts;	
-	})
+	});
+
+
+	$scope.confirmDel = function(id){
+		
+		ContactService.deleteContact(id).success(function(contacts){
+			alert('Contact deleted');
+			$scope.contacts = contacts;
+		});
+
+	};
+
 
 
 });
@@ -57,11 +69,7 @@ app.controller('ctrlViewContacts', function($scope, $routeParams, ContactService
 		$scope.contact = contact;
 	});
 
-	$scope.confirmDel = function(id){
-		alert('hi:' + id);
-	};
 
-	
 });
 
 app.controller('ctrlAddContacts', function($scope, ContactService){
@@ -97,5 +105,7 @@ app.controller('ctrlEditContacts', function($scope, $routeParams, ContactService
 		};
 
 	};
+
+
 	
 });
