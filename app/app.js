@@ -44,8 +44,8 @@ app.controller('NavBarController',function($scope, $location){
 
 
 app.controller('ctrlContacts', function($scope, ContactService){
-	ContactService.getContacts().success(function(contacts){
-		$scope.contacts = contacts;
+	ContactService.getContacts().success(function(getcontacts){
+		$scope.contacts = getcontacts;	
 	})
 
 

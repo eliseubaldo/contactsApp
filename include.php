@@ -18,6 +18,9 @@ if ($id) {
 	
   
 } else {
+	
+	//file_put_contents("post.log",print_r($_POST,true));
+
 
 	$data = file_get_contents('php://input');
 	$inp = file_get_contents('contacts.json');
