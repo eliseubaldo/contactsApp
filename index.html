@@ -51,7 +51,7 @@
 
 		    <!-- Collect the nav links, forms, and other content for toggling -->
 		    <div class="navbar-collapse" id="bs-example-navbar-collapse-1">
-		     			<ul class="nav navbar-nav navbar-right" ng-controller="NavBarController">
+		     			<ul class="nav navbar-nav navbar-right" ng-controller="NavBarController as nbc">
 							<li ng-class="{'active': getClass('/all-contacts')}"><a href="#/all-contacts">All Contacts</a></li>
 							<li ng-class="{'active': getClass('/add-contacts')}"><a href="#/add-contacts">Add Contacts</a></li>
 						</ul>
@@ -88,6 +88,9 @@
 <script src="app/app.js"></script>
 
 <script src="app/controllers/allContactsCtrl.js"></script>
+<script src="app/controllers/singleContactCtrl.js"></script>
+<script src="app/controllers/addContactCtrl.js"></script>
+<script src="app/controllers/editContactCtrl.js"></script>
 
 <script src="app/appService.js"></script>
 	

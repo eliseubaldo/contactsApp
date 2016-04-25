@@ -1,3 +1,6 @@
+(function(){
+	'use strict';
+
 angular
 	.module('ContactsApp')
 	.factory('ContactService', function($http){
@@ -39,4 +42,9 @@ angular
 
 	return factory;
 
-})
+});
+
+})();
+
+
+
