@@ -1,4 +1,6 @@
-app.factory('ContactService', function($http){
+angular
+	.module('ContactsApp')
+	.factory('ContactService', function($http){
 	
 	var factory = {};
 

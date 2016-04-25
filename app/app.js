@@ -1,34 +1,39 @@
+(function(){
+	'use strict';
 
-var app = angular.module('ContactsApp', ['ngRoute']);
+	angular
+		.module('ContactsApp', ['ngRoute']);
 
-app.config(function($routeProvider){
-	$routeProvider.when('/all-contacts',
-	{
-		controller:'ctrlContacts',
-		templateUrl:'template/allcontacts.html'
+	angular
+		.module('ContactsApp')
+		.config(function($routeProvider){
+			$routeProvider.when('/all-contacts',
+			{
+				controller:'ctrlContacts',
+				templateUrl:'template/allcontacts.html'
 
-	})
-	.when('/view-contacts/:contactId',
-	{
-		controller:'ctrlViewContacts',
-		templateUrl:'template/viewContact.html'
-	})
-	.when('/add-contacts',
-	{
-		controller:'ctrlAddContacts',
-		templateUrl:'template/manageContact.html'
-	})
-	.when('/edit-contacts/:contactId',
-	{
-		controller:'ctrlEditContacts',
-		templateUrl:'template/manageContact.html'
-	})
-	.otherwise({redirectTo:'all-contacts'})
+			})
+			.when('/view-contacts/:contactId',
+			{
+				controller:'ctrlViewContacts',
+				templateUrl:'template/viewContact.html'
+			})
+			.when('/add-contacts',
+			{
+				controller:'ctrlAddContacts',
+				templateUrl:'template/manageContact.html'
+			})
+			.when('/edit-contacts/:contactId',
+			{
+				controller:'ctrlEditContacts',
+				templateUrl:'template/manageContact.html'
+			})
+			.otherwise({redirectTo:'all-contacts'})
 
-});
+		});
 
 
-app.controller('NavBarController',function($scope, $location){
+angular.module('ContactsApp').controller('NavBarController',function($scope, $location){
 
 	$scope.getClass = function(path){
 		
@@ -43,28 +48,9 @@ app.controller('NavBarController',function($scope, $location){
 
 
 
-app.controller('ctrlContacts', function($scope, ContactService){
-
-	ContactService.getContacts().success(function(getcontacts){
-		$scope.contacts = getcontacts;	
-	});
 
 
-	$scope.confirmDel = function(id){
-		
-		ContactService.deleteContact(id).success(function(delcontacts){
-			console.log(delcontacts);
-			alert('Contact deleted');
-			$scope.contacts = delcontacts;			
-		});
-
-	};
-
-
-
-});
-
-app.controller('ctrlViewContacts', function($scope, $routeParams, ContactService){
+	angular.module('ContactsApp').controller('ctrlViewContacts', function($scope, $routeParams, ContactService){
 
 	ContactService.singleContact($routeParams.contactId).success(function(contact){
 		$scope.contact = contact;
@@ -73,7 +59,7 @@ app.controller('ctrlViewContacts', function($scope, $routeParams, ContactService
 
 });
 
-app.controller('ctrlAddContacts', function($scope, ContactService){
+	angular.module('ContactsApp').controller('ctrlAddContacts', function($scope, ContactService){
 
 	$scope.submitForm = function(contact){
 		if($scope.ContactForm.$valid){
@@ -88,7 +74,7 @@ app.controller('ctrlAddContacts', function($scope, ContactService){
 
 });
 
-app.controller('ctrlEditContacts', function($scope, $routeParams, ContactService){
+angular.module('ContactsApp').controller('ctrlEditContacts', function($scope, $routeParams, ContactService){
 
 	ContactService.singleContact($routeParams.contactId).success(function(contact){
 		$scope.contact = contact;
@@ -110,3 +96,6 @@ app.controller('ctrlEditContacts', function($scope, $routeParams, ContactService
 
 	
 });
+
+})();
+
