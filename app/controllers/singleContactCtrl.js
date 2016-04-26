@@ -9,8 +9,12 @@ angular
 
 	function ctrlViewContacts ($scope, $routeParams, ContactService){
 
-		ContactService.singleContact($routeParams.contactId).success(function(contact){
-			$scope.contact = contact;
+		ContactService.singleContact($routeParams.contactId)
+		.then(function(response){
+			$scope.contact = response.data;
+		})
+		.catch(function(response){
+			alert('Error:', response.status);
 		});
 
 	}

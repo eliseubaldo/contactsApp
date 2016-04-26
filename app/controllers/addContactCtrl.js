@@ -12,11 +12,15 @@ angular
 
 		$scope.submitForm = function(contact){
 			if($scope.ContactForm.$valid){
-				ContactService.addContact(contact).success(function(){
+				ContactService.addContact(contact)
+				.then(function(response){
 					$scope.ContactForm.$setPristine();
 					$scope.contact = null;
 					alert(' Contact added!');
-				});
+				})
+				.catch(function (response) {
+                	alert('Error:', response.status, response.data);
+            	});
 			}
 
 		}
